@@ -1,5 +1,5 @@
 const allRoles = {
-  user: [],
+  user: ['getRestaurants', 'createRestaurant'],
   admin: ['getUsers', 'manageUsers'],
 };
 
