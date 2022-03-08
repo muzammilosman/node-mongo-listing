@@ -13,7 +13,15 @@ const getRestaurants = catchAsync(async (req, res) => {
     res.send(restaurants);
 });
 
+const deleteRestaurant = catchAsync(async (req, res) => {
+    await restaurantService.deleteRestaurantById(req.params.id)
+    res.status(httpStatus.NO_CONTENT).send({
+        message: 'Successfully deleted'
+    });
+});
+
 module.exports = {
     createRestaurant,
-    getRestaurants
+    getRestaurants,
+    deleteRestaurant
 }

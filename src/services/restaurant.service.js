@@ -22,7 +22,21 @@ const viewRestaurants = async (query = null) => {
     return restaurants;
 }
 
+const getRestaurantById = (id) => {
+    return Restaurant.findById(id);
+}
+
+const deleteRestaurantById = async (resId) => {
+    const restaurant = await getRestaurantById(resId);
+    if(!restaurant){
+        throw new ApiError(httpStatus.NOT_FOUND, 'Restaurant not found');
+    }
+    await restaurant.remove();
+    return restaurant;
+}
+
 module.exports = {
     createRestaurant,
-    viewRestaurants
+    viewRestaurants,
+    deleteRestaurantById
 }

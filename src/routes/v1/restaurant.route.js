@@ -11,4 +11,6 @@ router
   .get(auth('getRestaurants'), restaurantController.getRestaurants)
   .post(auth('createRestaurant'), restaurantController.createRestaurant)
 
+router.delete('/:id', auth('createRestaurant'), restaurantController.deleteRestaurant)
+
 module.exports = router;
